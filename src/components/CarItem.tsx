@@ -1,12 +1,17 @@
+import { useState } from "react";
 import { CarProps } from "../types";
 import { getCarRentPerDay } from "../utils";
 import Button from "./Button";
+import CarDetails from "./CarDetails";
+import { getCarImageUrl } from "../services/api";
 
 type Props = {
   car: CarProps;
 };
 
 const CarItem = ({ car }: Props) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const { city_mpg, year, make, model, transmission, drive } = car;
 
   return (
@@ -25,7 +30,7 @@ const CarItem = ({ car }: Props) => {
 
       <div className="car-card__image">
         <img
-          src={"/hero.png"}
+          src={getCarImageUrl(car)}
           alt="car model"
           className="object-contain w-full h-full"
         />
@@ -62,9 +67,12 @@ const CarItem = ({ car }: Props) => {
             icon="/right-arrow.svg"
             iconStyle="transition duration-500 group-hover/btn:translate-x-2"
             className="w-full py-[16px] rounded-full group/btn"
+            onClick={() => setIsOpen(true)}
           />
         </div>
       </div>
+
+      <CarDetails isOpen={isOpen} onClose={() => setIsOpen(false)} car={car} />
     </div>
   );
 };
