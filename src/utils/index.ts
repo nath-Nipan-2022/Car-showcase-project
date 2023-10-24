@@ -9,3 +9,15 @@ export const getCarRentPerDay = (city_mpg: number, year: number) => {
   const rentPerDay = baseRentPerDay + ageRate + milageRate;
   return rentPerDay.toFixed(0);
 };
+
+export const updateSearchParams = (
+  searchParams: URLSearchParams,
+  key: string,
+  value: string
+) => {
+  if (value) {
+    searchParams.set(key, value.toLowerCase());
+  } else {
+    searchParams.delete(key);
+  }
+};

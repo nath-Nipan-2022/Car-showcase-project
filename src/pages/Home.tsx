@@ -8,6 +8,7 @@ import SearchBar from "../components/SearchBar";
 import { fetchCars } from "../services/api";
 import CarItem from "../components/CarItem";
 import { useSearchParams } from "react-router-dom";
+import { fuels, yearsOfProduction } from "../constants";
 
 const Home = () => {
   const [cars, setCars] = useState<CarProps[]>([]);
@@ -39,8 +40,8 @@ const Home = () => {
           <SearchBar />
 
           <div className="home__filter-container">
-            <Filter title="fuel" />
-            <Filter title="year" />
+            <Filter title="fuel" options={fuels} />
+            <Filter title="year" options={yearsOfProduction} />
           </div>
         </div>
       </section>
