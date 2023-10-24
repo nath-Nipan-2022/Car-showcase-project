@@ -7,15 +7,23 @@ import SearchBar from "../components/SearchBar";
 
 import { fetchCars } from "../services/api";
 import CarItem from "../components/CarItem";
+import { useSearchParams } from "react-router-dom";
 
 const Home = () => {
   const [cars, setCars] = useState<CarProps[]>([]);
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    fetchCars("").then((cars) => {
+    fetchCars({
+      manufacturer: searchParams.get("manufacturer") ?? "",
+      model: searchParams.get("model") ?? "",
+      year: Number(searchParams.get("year")) ?? 2022,
+      fuel: searchParams.get("fuel") ?? "",
+      limit: Number(searchParams.get("limit")) ?? 10,
+    }).then((cars) => {
       setCars(cars);
     });
-  }, []);
+  }, [searchParams]);
 
   return (
     <>
@@ -38,7 +46,7 @@ const Home = () => {
       </section>
 
       <section>
-        <div className="home__cars-wrapper">
+        <div className="home__cars-wrapper padding-x ">
           {cars.length > 0 ? (
             cars.map((car, i) => <CarItem key={i} car={car} />)
           ) : (
