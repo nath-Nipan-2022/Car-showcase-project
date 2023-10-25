@@ -1,4 +1,4 @@
-// import { ReactNode } from "react";
+import { ReactNode } from "react";
 
 export interface ButtonProps {
   variant: "primary" | "secondary";
@@ -10,6 +10,7 @@ export interface ButtonProps {
   className?: string;
   onClick?: () => void;
   disabled?: boolean;
+  children?: ReactNode;
 }
 
 export interface CarProps {
@@ -25,4 +26,27 @@ export interface CarProps {
   model: string;
   transmission: string;
   year: number;
+}
+
+export interface FetchOptions {
+  manufacturer: string;
+  model: string;
+  year: number;
+  fuel: string;
+  limit: number;
+}
+
+export interface Option {
+  title: string;
+  value: string;
+}
+
+export interface FilterComponentProps {
+  title: string;
+  options: Option[];
+}
+
+export interface ShowMoreProps {
+  hasMore: boolean;
+  onClick: () => void;
 }
