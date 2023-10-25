@@ -97,7 +97,7 @@ const CarDetails = ({ car, isOpen, onClose }: Props) => {
                   onClick={onClose}
                 >
                   <img
-                    src="/public/close.svg"
+                    src="/close.svg"
                     alt="close icon"
                     width={16}
                     height={16}

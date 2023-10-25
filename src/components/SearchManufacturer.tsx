@@ -21,12 +21,12 @@ function SearchManufacturer({ manufacturer, setManufacturer }: Props) {
       : manufacturers;
 
   return (
-    <div>
+    <div className="flex-1 z-10">
       <Combobox value={manufacturer} onChange={setManufacturer}>
         <div className="relative w-full">
           <Combobox.Button className="absolute top-3.5">
             <img
-              src="/public/car-logo.svg"
+              src="/car-logo.svg"
               width={20}
               height={20}
               className="ml-4"

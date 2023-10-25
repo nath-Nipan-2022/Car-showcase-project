@@ -66,7 +66,7 @@ const CarItem = ({ car }: Props) => {
             size="small"
             icon="/right-arrow.svg"
             iconStyle="transition duration-500 group-hover/btn:translate-x-2"
-            className="w-full py-[16px] rounded-full group/btn"
+            className="w-full py-[12px] rounded-full group/btn"
             onClick={() => setIsOpen(true)}
           />
         </div>

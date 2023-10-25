@@ -10,6 +10,7 @@ const Button = ({
   className,
   onClick,
   disabled,
+  children,
 }: ButtonProps) => {
   const variants = {
     primary: "bg-primary-blue text-white rounded-full hover:bg-blue-700",
@@ -39,6 +40,7 @@ const Button = ({
     >
       {title}
       {icon && <img src={icon} alt="icon" className={iconStyle} />}
+      {children || ""}
     </button>
   );
 };

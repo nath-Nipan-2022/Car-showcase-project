@@ -14,11 +14,15 @@ const Hero = () => {
         </p>
 
         <Button
-          title="Explore Cars"
+          title=""
           variant="primary"
-          size="medium"
-          className="mt-10 shadow-xl shadow-blue-100"
-        />
+          size="large"
+          className="mt-10 shadow-xl shadow-blue-100 px-[0px] py-[0px]"
+        >
+          <a href="#explore" className="px-6 py-2 block">
+            Explore Cars
+          </a>
+        </Button>
       </div>
       <div className="hero__image-container">
         <figure className="hero__image">
