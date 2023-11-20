@@ -6,6 +6,7 @@ import Hero from "../components/Hero";
 import SearchBar from "../components/SearchBar";
 import CarItem from "../components/CarItem";
 import ShowMore from "../components/ShowMore";
+import CardSkeleton from '../components/CardSkeleton';
 
 import { fetchCars } from "../services/api";
 import { useSearchParams } from "react-router-dom";
@@ -60,15 +61,19 @@ const Home = () => {
 
       <section>
         <div className="home__cars-wrapper padding-x ">
-          {cars.length > 0
-            ? cars.map((car, i) => <CarItem key={i} car={car} />)
-            : !isLoading && (
-                <div className="home__error-container">
-                  <h3 className="text-black-100 text-xl font-bold">
-                    Oops, No Data Found
-                  </h3>
-                </div>
-              )}
+          {isLoading ? (
+            [...Array(cars.length || 10)].map((_, i) => (
+              <CardSkeleton key={i} />
+            ))
+          ) : cars.length > 0 ? (
+            cars.map((car, i) => <CarItem key={i} car={car} />)
+          ) : (
+            <div className="home__error-container">
+              <h3 className="text-black-100 text-xl font-bold">
+                Oops, No Data Found
+              </h3>
+            </div>
+          )}
         </div>
 
         {/* Loader */}
