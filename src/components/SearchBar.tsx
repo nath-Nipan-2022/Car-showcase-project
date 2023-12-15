@@ -22,18 +22,6 @@ const SearchBar = () => {
         manufacturer={manufacturer}
         setManufacturer={setManufacturer}
       ></SearchManufacturer>
-      <button
-        type="submit"
-        className="absolute right-3 top-2.5 w-7 h-7 sm:hidden"
-      >
-        <img
-          src="/magnifying-glass.svg"
-          alt="search icon"
-          width={24}
-          height={24}
-          className="w-7 h-7"
-        />
-      </button>
 
       <div className="searchbar__item relative">
         <img
@@ -51,13 +39,16 @@ const SearchBar = () => {
           placeholder="Tiguan"
           className="searchbar__input"
         />
-        <button type="submit" className="absolute right-3 top-2.5 w-7 h-7">
+        <button
+          type="submit"
+          className="absolute right-3 top-2.5 w-7 h-7 rounded-full"
+        >
           <img
             src="/magnifying-glass.svg"
             alt="search icon"
             width={24}
             height={24}
-            className="w-7 h-7"
+            className="w-7 h-7 dark:invert"
           />
         </button>
       </div>

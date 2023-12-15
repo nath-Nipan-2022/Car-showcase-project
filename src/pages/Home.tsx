@@ -6,7 +6,7 @@ import Hero from "../components/Hero";
 import SearchBar from "../components/SearchBar";
 import CarItem from "../components/CarItem";
 import ShowMore from "../components/ShowMore";
-import CardSkeleton from '../components/CardSkeleton';
+import CardSkeleton from "../components/CardSkeleton";
 
 import { fetchCars } from "../services/api";
 import { useSearchParams } from "react-router-dom";
@@ -20,7 +20,7 @@ const Home = () => {
   const limit = Number(searchParams.get("limit") ?? 10);
 
   const handleNavigation = () => {
-    const nextLimit = limit + 1 * 10;
+    const nextLimit = (limit + 1) * 10;
     updateSearchParams(searchParams, "limit", `${nextLimit}`);
     setSearchParams(searchParams, { replace: true });
   };
@@ -44,10 +44,12 @@ const Home = () => {
       <Hero />
 
       <section className="mt-12 padding-x padding-y max-width" id="explore">
-        <h2 className="text-4xl font-extrabold text-black-100">
+        <h2 className="text-4xl font-extrabold text-black-100  dark:text-primary-blue-100/80">
           Car Catalogue
         </h2>
-        <p className="mt-2.5 text-black-100">Explore the cars you like</p>
+        <p className="mt-2.5 text-black-100  dark:text-primary-blue-100/60">
+          Explore the cars you like
+        </p>
 
         <div className="home__filters">
           <SearchBar />
@@ -59,7 +61,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section>
+      <section className="pb-10">
         <div className="home__cars-wrapper padding-x ">
           {isLoading ? (
             [...Array(cars.length || 10)].map((_, i) => (
@@ -69,7 +71,13 @@ const Home = () => {
             cars.map((car, i) => <CarItem key={i} car={car} />)
           ) : (
             <div className="home__error-container">
-              <h3 className="text-black-100 text-xl font-bold">
+              <img
+                src="/no-results.png"
+                alt="no data found"
+                width={200}
+                height={300}
+              />
+              <h3 className="text-black-100 dark:text-gray-400 text-xl font-bold">
                 Oops, No Data Found
               </h3>
             </div>

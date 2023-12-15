@@ -30,7 +30,7 @@ const Filter = ({ title, options }: FilterComponentProps) => {
               alt="chevron up down"
               width={20}
               height={20}
-              className="ml-4 object-contain"
+              className="ml-4 object-contain dark:invert"
             />
           </Listbox.Button>
 
@@ -48,7 +48,7 @@ const Filter = ({ title, options }: FilterComponentProps) => {
                     `relative cursor-pointer select-none py-2 pl-10 pr-4 ${
                       active || selected
                         ? "bg-primary-blue text-white"
-                        : "text-gray-900"
+                        : "text-gray-900 dark:text-primary-blue-100/80"
                     }`
                   }
                   value={option}

@@ -17,9 +17,9 @@ const Hero = () => {
           title=""
           variant="primary"
           size="large"
-          className="mt-10 shadow-xl shadow-blue-100 px-[0px] py-[0px]"
+          className="mt-10 shadow-xl shadow-blue-100 dark:shadow-blue-900"
         >
-          <a href="#explore" className="px-6 py-2 block">
+          <a href="#explore" tabIndex={-1}>
             Explore Cars
           </a>
         </Button>

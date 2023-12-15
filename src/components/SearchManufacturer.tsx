@@ -47,7 +47,7 @@ function SearchManufacturer({ manufacturer, setManufacturer }: Props) {
             leaveTo="opacity-0"
             afterLeave={() => setQuery("")}
           >
-            <Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+            <Combobox.Options className="search-manufacturer__options">
               {filteredManufactures.map((item) => (
                 <Combobox.Option
                   key={item}
@@ -56,7 +56,7 @@ function SearchManufacturer({ manufacturer, setManufacturer }: Props) {
                     `relative cursor-pointer search-manufacturer__option ${
                       active || selected
                         ? "bg-primary-blue text-white"
-                        : "text-gray-900"
+                        : "text-gray-900 dark:text-primary-blue-100/80"
                     }`
                   }
                 >
@@ -77,6 +77,18 @@ function SearchManufacturer({ manufacturer, setManufacturer }: Props) {
           </Transition>
         </div>
       </Combobox>
+      <button
+        type="submit"
+        className="absolute right-3 top-2.5 w-7 h-7 sm:hidden z-0 rounded-full"
+      >
+        <img
+          src="/magnifying-glass.svg"
+          alt="search icon"
+          width={24}
+          height={24}
+          className="w-7 h-7 dark:invert"
+        />
+      </button>
     </div>
   );
 }
